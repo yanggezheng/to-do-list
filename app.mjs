@@ -1,5 +1,6 @@
 import express from 'express'
 import path from 'path'
+import * as myModule from '../final-project-yanggezheng/db';
 import { fileURLToPath } from 'url';
 
 const app = express();
