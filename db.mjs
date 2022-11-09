@@ -47,7 +47,7 @@ ArticleSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=title%>'});
 mongoose.model('User', UserSchema);
 mongoose.model('Article', ArticleSchema);
 // mongoose.connect('mongodb://localhost/hw05');
-mongoose.connect(dbconf);
+await mongoose.connect(dbconf);
 
 //   General information in a to do list
 // * includes some basic information about the task (the due date, penalty, etc)
