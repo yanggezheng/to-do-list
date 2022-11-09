@@ -14,10 +14,9 @@ if (process.env.NODE_ENV === 'PRODUCTION') {
  // conenction string appropriately!
  const conf = JSON.parse(data);
  dbconf = conf.dbconf;
- console.log(dbconf);
 } else {
  // if we're not in PRODUCTION mode, then use
- dbconf = 'mongodb://localhost/YOUR_DATABASE_NAME_HERE';
+ dbconf = 'mongodb://localhost/hw05';
 }
 // 1ST DRAFT DATA MODEL
 // users
