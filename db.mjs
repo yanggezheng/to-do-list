@@ -33,6 +33,7 @@ import path from 'path';
 import url from 'url';
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 let dbconf;
+console.log(process.env.NODE_ENV,"dsadsfsadasdsasdfsdfsdfsdfsdf");
 if (process.env.NODE_ENV === 'PRODUCTION') {
  // if we're in PRODUCTION mode, then read the configration from a file
  // use blocking file io to do this...
