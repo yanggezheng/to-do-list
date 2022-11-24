@@ -59,7 +59,7 @@ app.get('/article/add', (req, res) => {
   if (!req.session.user){
     res.redirect("/login");
   }else{
-    res.render('article-add');
+    res.render('add');
   }
 
 });
@@ -78,7 +78,7 @@ app.post('/article/add', (req, res) => {
     newArticle.save(err => {
       if (err){
         console.log(err);
-        res.render('article-add', {error: err});
+        res.render('add', {error: err});
       }else{
         res.redirect("/");
       }
@@ -94,7 +94,7 @@ app.get('/article/:slug', (req, res) => {
     if (err){
       res.render('error', {message: "error"});
     }else{
-      res.render('article-detail', {article: result});
+      res.render('detail', {article: result});
     }
   });
 });
