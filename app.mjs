@@ -63,7 +63,14 @@ app.get('/article/add', (req, res) => {
   }
 
 });
+app.get('/article/addEvent', (req, res) => {
+  if (!req.session.user){
+    res.redirect("/login");
+  }else{
+    res.render('addEvent');
+  }
 
+});
 app.post('/article/add', (req, res) => {
   //complete POST /article/add
   if (!req.session.user){
@@ -79,6 +86,26 @@ app.post('/article/add', (req, res) => {
       if (err){
         console.log(err);
         res.render('add', {error: err});
+      }else{
+        res.redirect("/");
+      }
+    });
+  }
+});
+app.post('/article/addEvent', (req, res) => {
+  if (!req.session.user){
+    res.redirect("/login");
+  }else{
+    const newArticle = new Article({
+      title: req.body.title,
+      url: req.body.url,
+      description: req.body.description,
+      user: req.session.user._id
+    });
+    newArticle.save(err => {
+      if (err){
+        console.log(err);
+        res.render('addEvent', {error: err});
       }else{
         res.redirect("/");
       }

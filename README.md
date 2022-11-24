@@ -97,6 +97,7 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 * (3 points) Perform client side form validation using a JavaScript library
     * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
     * if you have more than 5 tasks right, you cannot add more task
+    * plan to implement AJAX
 
 10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit)
 
