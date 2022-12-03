@@ -11,12 +11,14 @@ function play() {
 
 socket.on('update', (data) => {
     const left1 = data.left1;
+    document.querySelector(".number").textContent = 'You are ' + left1/15+ "%"
     document.querySelector('.racer.player1').style.left = left1 + 'px';
 });
 
 socket.on('over', () => {
     document.querySelector('.player1Btn').remove();
     document.querySelector('.player2Btn').remove();
+    document.querySelector(".number").remove();
     document.querySelector("#msg").textContent = "You finished it. 😆😆😆😆😆"
 });
 function main() { 

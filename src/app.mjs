@@ -193,7 +193,7 @@ let left1 = 0,
 const off = 10;
 io.on('connection', (socket) => {
 
-    if (left1 >= 500 ) {
+    if (left1 >= 1500 ) {
         left1 = 0;
     }
 
@@ -205,7 +205,7 @@ io.on('connection', (socket) => {
         left1 += off;
         io.emit('update', { left1, left2 });
         
-        if (left1 >= 500) {
+        if (left1 >= 1500) {
             io.emit('over');
         }
     });
@@ -215,7 +215,7 @@ io.on('connection', (socket) => {
       left1 -= off;
       io.emit('update', { left1, left2 });
       
-      if (left1 >= 500) {
+      if (left1 >= 1500) {
           io.emit('over');
       }
   });

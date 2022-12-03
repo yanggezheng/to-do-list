@@ -1,7 +1,15 @@
 <div>Here are your friends</div>
 <ol>
 {{#each friends as |a|}}
-<li>{{username}} - [<a href="/friends/{{slug}}">details</a>]</li>
+<li>
+    {{username}} - [<a href="https://mail.google.com/mail/u/0/#inbox?compose=new">Send a email to your friend</a>] - [<div>{{phone}}</div>]
+    <select name="howMuchDoesHeDo" id="howMuchDoesHeDo">
+		<option value="1">Doing the most amount of work</option>
+		<option value="2">Doing the fair amount of work</option>
+		<option value="3">Doing the bare minimum </option>
+		<option value="4">Not doing work</option>
+	</select>
+</li>
 {{/each}}
 </ol>
 

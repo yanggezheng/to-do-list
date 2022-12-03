@@ -4,7 +4,6 @@ TODO List express
 
 ## Overview
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
 
 I have been used to do list for a long time, but most of to do list do not have enough function that I am looking for. I decide to make one for myself. Later, I would perfer my TODO list express over other apps.
 
@@ -38,9 +37,13 @@ An Example List with Embedded Items:
   user: // a reference to a User object
   name: "AIT HW5",
   detailed tasks: [
-    { name: "part1", status: "did not start", important: true, teamWork: false, teamMates = {}},
-    { name: "part2", status: "did not start", important: true, teamWork: false, teamMates = {}},
-    { name: "part3", status: "did not start", important: true, teamWork: false, teamMates = {}}
+    const TaskSchema = new mongoose.Schema({
+    title: {type: String, required: true},
+    dueDate: {type: String, required: true},
+    description: {type: String, required: true},
+    done: {type: Boolean, required : true},
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+  });
   ],
   createdAt: // timestamp
 }
@@ -79,25 +82,18 @@ Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
 3. as a user, I can add new tasks
-4. as a user, I can change the content of the task
+4. as a user, I can show how much i have done
 5. as a user, I can add friends to my contact
-6. as a user, I can change the priority of the task 
+6. as a user, I can show how much work does the friend do usually
 
 ## Research Topics
 
 (__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed)
 
-* (7 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-    * design an algorithm to rank the task.
-    * user also can adjust the order
-* (3 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you have more than 5 tasks right, you cannot add more task
-    * plan to implement AJAX
+* (5 points) Automated functional testing  
+* (3 points) Unit testing 
+   
+* (2 points) bootstrap     
 
 10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit)
 
