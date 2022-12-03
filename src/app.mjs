@@ -186,7 +186,7 @@ app.post('/login', (req, res) => {
   auth.login(req.body.username, req.body.password, error, success);
 });
 
-server.listen(3000);
+server.listen(process.env.PORT || 3000);
 
 let left1 = 0,
     left2 = 0;

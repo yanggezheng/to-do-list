@@ -28,4 +28,23 @@ TaskSchema.plugin(mongooseSlugPlugin, {tmpl: '<%=title%>'});
 mongoose.model('User', UserSchema);
 mongoose.model('Task', TaskSchema);
 mongoose.model('Friend', FriendSchema);
-mongoose.connect('mongodb://localhost/hw05');
+let dbconf;
+  if (process.env.NODE_ENV === 'PRODUCTION') {
+   // if we're in PRODUCTION mode, then read the configration from a file
+   // use blocking file io to do this...
+   const fn = path.join(__dirname, 'config.json');
+   console.log(fn);
+   const data = fs.readFileSync(fn);
+  
+   // our configuration file will be in json, so parse it and set the
+   // conenction string appropriately!
+   const conf = JSON.parse(data);
+   dbconf = conf.dbconf;
+  } else {
+   // if we're not in PRODUCTION mode, then use
+   dbconf = 'mongodb://localhost/hw05';
+  }
+  
+  mongoose.connect(dbconf);
+  
+  
