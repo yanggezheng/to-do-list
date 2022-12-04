@@ -1,12 +1,12 @@
 {
-  "name": "homework05-aintreddit-template",
+  "name": "final",
   "version": "1.0.0",
   "main": "src/app.mjs",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "npx mocha --loader=mock-import test/test-auth.mjs"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,12 +25,14 @@
     "hbs": "^4.2.0",
     "mongoose": "^6.7.0",
     "mongoose-slug-plugin": "^2.1.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "jest": "^29.4.0"
   },
   "devDependencies": {
     "chai": "^4.3.6",
     "eslint": "^8.26.0",
     "eslint-plugin-mocha": "^10.1.0",
+    "jest": "^29.3.1",
     "mocha": "^10.1.0",
     "mock-import": "^3.0.4"
   },

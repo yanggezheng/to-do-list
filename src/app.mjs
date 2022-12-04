@@ -190,7 +190,28 @@ server.listen(process.env.PORT || 3000);
 
 let left1 = 0,
     left2 = 0;
-const off = 10;
+
+export function randomNumber(upper){
+return Math.floor(Math.random()*upper)+1}
+
+export function check(arr, test){
+  const bool = arr.reduce((a,b)=>a && test(b), true);
+  return bool;
+}
+
+export function getVal(upper) {
+  let arr = [];
+  for (let i = 0; i < 10; i++) {
+      arr.push(randomNumber(upper))
+  }
+  if (check(arr, n => n < upper && n > 0)) {
+      return randomNumber(upper)
+  }
+  else {
+      return upper
+  }
+}
+
 io.on('connection', (socket) => {
 
     if (left1 >= 1500 ) {
@@ -201,8 +222,9 @@ io.on('connection', (socket) => {
     
 
     socket.on('move1', () => {
+      let arr = [];
         console.log('move1');
-        left1 += off;
+        left1 += getVal(300);
         io.emit('update', { left1, left2 });
         
         if (left1 >= 1500) {
@@ -212,7 +234,7 @@ io.on('connection', (socket) => {
 
     socket.on('move2', () => {
       console.log('move2');
-      left1 -= off;
+      left1 -= getVal(300);
       io.emit('update', { left1, left2 });
       
       if (left1 >= 1500) {
